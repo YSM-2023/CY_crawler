@@ -9,19 +9,25 @@ from selenium.webdriver.common.keys import Keys
 from ast import literal_eval
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select, WebDriverWait
+import subprocess
+import os
 
 
 class ImportyetiCrawler:
     def __init__(self) -> None:
+        # subprocess.Popen(r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\chrometemp"')
+        
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         # options.add_argument('--headless') #내부 창을 띄울 수 없으므로 설정
         # options.add_argument('--no-sandbox')
         # options.add_argument('--disable-dev-shm-usage')
+        # options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
         self.driver = webdriver.Chrome(
             service=Service(ChromeDriverManager().install()),
             options=options,
         )
+        self.driver.implicitly_wait(10)
         print("setted webdriver\n")
     
     def get_request(self, url, headers=""):
@@ -63,8 +69,36 @@ class ImportyetiCrawler:
     def crawl(self, id, url, headers=""):
         soup = self.get_request(url, headers=headers)
         panel = self.__wait_until_find(self.driver, '//*[@id="headlessui-tabs-panel-30"]')
-        childElements = panel.find_elements(By.XPATH, '*')
-        print(len(childElements))
+
+        # childElements = panel.find_elements(By.XPATH, '*')
+        # print(len(childElements))
+
+        page_li = panel.find_elements(By.XPATH, '*/li')
+        page_max_num = int(page_li[-2].text)
+        for i in range(page_max_num):
+            panel = self.__wait_until_find(self.driver, '//*[@id="headlessui-tabs-panel-30"]')
+            childElements = panel.find_elements(By.XPATH, '*')
+            print(len(childElements))
+
+            print("------------------------------------", i)
+            print("\n")
+            self.crawl_child_elements(childElements)
+            if i == page_max_num-1:
+                break
+            # time.sleep(15)
+            # print(page_li[-1].get_attribute("class"))
+            # page_li[-1].click()
+            # print("clicked!!!!")
+            self.driver.close()
+            self.__init__()
+            url = url.replace(str(i), str(i+1))
+            soup = self.get_request(url, headers)
+            # self.driver.switch_to.window(self.driver.window_handles[-1])
+            print(self.driver.current_url)
+            # os.rmdir("C:\chrometemp")
+            time.sleep(15)
+
+    def crawl_child_elements(self, childElements):
         for i in range(0, len(childElements)):
             if i==len(childElements)-1:
                 #다음 페이지 이동
@@ -83,18 +117,13 @@ class ImportyetiCrawler:
                 country = child.find_element(By.XPATH, '*/strong/a/div')
                 print(country.get_attribute("class"))
 
-                # detailClick = child.find_element(By.CSS_SELECTOR, 'a')
-                # print(detailClick.text)
-                # print(detailClick.get_attribute("href"))
-                # detailClick.click()
-                # print(self.driver.current_url)
-                # time.sleep(30)
+                # 나중에 linkedin crawler 함수 호출
                 linkedin_url = "https://www.linkedin.com/search/results/companies/?keywords=" + childElements[0].text.replace(' ', '%20')
-                self.crawl_linkedin(linkedin_url)
-                break
+                # self.crawl_linkedin(linkedin_url)
                 
 
 
 
 crawler = ImportyetiCrawler()
-crawler.crawl(0, "https://www.importyeti.com/search?page=1&q=cosmetics")
+crawler.crawl(0, "https://www.importyeti.com/search?page=0&q=cosmetics")
+# crawler.crawl(0, "https://www.importyeti.com/search?page=1&q=cosmetics", '{"User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5)\AppleWebKit 537.36 (KHTML, like Gecko) Chrome",	"Accept":"text/html,application/xhtml+xml,application/xml;\q=0.9,imgwebp,*/*;q=0.8"}')
