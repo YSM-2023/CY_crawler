@@ -56,6 +56,10 @@ class ImportyetiCrawler:
         button = driver.find_element(By.XPATH, xpath)
         driver.execute_script("arguments[0].click();", button)
 
+    def crawl_linkedin(self, url, headers=""):
+        soup = self.get_request(url, headers=headers)
+        print(self.driver.current_url)        
+
     def crawl(self, id, url, headers=""):
         soup = self.get_request(url, headers=headers)
         panel = self.__wait_until_find(self.driver, '//*[@id="headlessui-tabs-panel-30"]')
@@ -78,6 +82,17 @@ class ImportyetiCrawler:
                 print(childFlex[7].text+", "+childFlex[8].text+", "+childFlex[9].text)
                 country = child.find_element(By.XPATH, '*/strong/a/div')
                 print(country.get_attribute("class"))
+
+                # detailClick = child.find_element(By.CSS_SELECTOR, 'a')
+                # print(detailClick.text)
+                # print(detailClick.get_attribute("href"))
+                # detailClick.click()
+                # print(self.driver.current_url)
+                # time.sleep(30)
+                linkedin_url = "https://www.linkedin.com/search/results/companies/?keywords=" + childElements[0].text.replace(' ', '%20')
+                self.crawl_linkedin(linkedin_url)
+                break
+                
 
 
 
