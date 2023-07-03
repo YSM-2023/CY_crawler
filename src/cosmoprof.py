@@ -81,14 +81,24 @@ class CosmoprofCrawler:
         driver.switch_to.window(driver.window_handles[-1])
         self.__wait_until_find_classname(driver,"BoothContactCountry")
         
-        country = driver.find_element(By.XPATH, '//*[@id="eboothContainer"]/div[2]/div/div[1]/span[1]').text
+        country = driver.find_element(By.CLASS_NAME, 'BoothContactCountry').text
         website = driver.find_element(By.CLASS_NAME, "BoothContactUrl").text
         
-        sns=[]
+        # sns=[]
+        # sns=[facebook,twitter,linkedin,instagram]
+        sns=['','','','']
         try:
             sns_list = driver.find_element(By.ID, "ctl00_ContentPlaceHolder1_ctrlCustomField_Logos_dlCustomFieldList").find_elements(By.TAG_NAME,"a")
             for item in sns_list: 
-                sns.append(item.get_attribute("href"))
+                icon_id=item.get_attribute("id")
+                if icon_id=="ctl00_ContentPlaceHolder1_ctrlCustomField_Logos_dlCustomFieldList_ctl00_lnkCustomField":
+                    sns[0]=item.get_attribute("href")
+                elif icon_id=="ctl00_ContentPlaceHolder1_ctrlCustomField_Logos_dlCustomFieldList_ctl01_lnkCustomField":
+                    sns[1]=item.get_attribute("href")
+                elif icon_id=="ctl00_ContentPlaceHolder1_ctrlCustomField_Logos_dlCustomFieldList_ctl02_lnkCustomField":
+                    sns[2]=item.get_attribute("href")
+                elif icon_id=="ctl00_ContentPlaceHolder1_ctrlCustomField_Logos_dlCustomFieldList_ctl03_lnkCustomField":
+                    sns[3]=item.get_attribute("href")
         except:
             pass
         
@@ -138,7 +148,7 @@ class CosmoprofCrawler:
 
         driver.quit()
 
-        return name, sns
+        return name, country, website, sns
     
     # def set_txt(self, id, table_name, cols):
     #     f_name = str(id)+".txt"
@@ -158,9 +168,9 @@ if __name__ == '__main__':
     save_path = 'cosmoprofData/'
     
     # Run Crawler with save_path
-    ccc = CosmoprofCrawler(url, save_path)
+    cc = CosmoprofCrawler(url, save_path)
     
     # Run Only One Project  
-    name, sns = ccc.run()
+    name, country, website, sns = cc.run()
     # ccc.save_data(name, sns)
             
