@@ -1,3 +1,4 @@
 .env
 *.pyc
 *.txt
+.DS_Store
