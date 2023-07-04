@@ -15,7 +15,7 @@ class Run:
         if facebook_page_url != '':
             fc = FacebookCrawler('')
             icon_list = fc.run_one(facebook_page_url)
-            print(facebook_page_url)
+            # print(facebook_page_url)
             return icon_list
         return 'Fail'
         

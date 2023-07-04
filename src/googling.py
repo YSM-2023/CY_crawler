@@ -24,7 +24,7 @@ options = Options()
 user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
 options.add_argument('user-agent=' + user_agent)
 ## for background
-options.add_argument("headless")
+options.add_argument("--headless")
 options.add_argument('--window-size=1920, 1080')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
@@ -33,7 +33,9 @@ options.add_argument('--start-fullscreen')
 options.add_argument('--disable-blink-features=AutomationControlled')
 
 ## for english
+# options.add_argument('lang=en')
 options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
+# options.add_argument("accept-language=en-US")
 
 # Save log 
 logger = logging.getLogger()
@@ -73,7 +75,7 @@ class Googling:
         soup = BeautifulSoup(html)
         
         result_list = soup.select_one('#rso')
-        name_list = result_list.find_all('a')[:5]
+        name_list = result_list.find_all('a')
         
         for name in name_list:
             check = True
@@ -97,7 +99,6 @@ class Googling:
         
         fc = FacebookCrawler('')
         icon_list = fc.run_one(facebook_page_url)
-        # print(icon_list)
         
         if facebook_page_url != '' and 'site_url' in icon_list.keys() and icon_list['site_url'] in website_url:
             # print(icon_list['site_url'])
@@ -107,19 +108,13 @@ class Googling:
     
     def run_one(self):
         # open google search
-        search_url = 'http://www.google.com/search?q=facebook page '+self.website_url
+        search_url = 'http://www.google.com/search?q=facebook page '+ self.website_url + '&gl=us&hl=en'
         driver = self.get_driver(search_url)
-        
-        try:
-            # click english
-            self.__wait_and_click(driver, '//*[@id="Rzn5id"]/div/a[2]')
-        except:
-            pass
         
         facebook_page_url = self.get_facebook_page(driver)
         
-        # if facebook_page_url != '' and self.check_website_url(facebook_page_url, self.website_url) == True:
-        #     return facebook_page_url
+        if facebook_page_url != '' and self.check_website_url(facebook_page_url, self.website_url) == True:
+            return facebook_page_url
         
         return facebook_page_url
 
