@@ -93,21 +93,28 @@ class FacebookCrawler:
         icon_list = {}
         icon_list_xpath = '/html/body/div[1]/div/div[1]/div/div[3]/\
             div/div/div/div[1]/div[1]/div/div/div[4]/div[2]/\
-            div/div[1]/div[2]/div/div[1]/div/div/div/div/div[2]/div[2]/div/ul'  
+            div/div[1]/div[2]/div/div[1]/div/div/div/div/div[2]/div[2]/div/ul'
             
         try:
             icon_el_list = self.__wait_until_find(driver, icon_list_xpath)
-            children = icon_el_list.find_elements(By.XPATH, './child::*')
-            
-            for elem in children:
-                src = elem.find_element(By.XPATH, './div/img').get_attribute('src')
-                # print(elem.text)
-                icon = self.get_icon(src)
-                if icon != 'etc':
-                    desc = self.get_icon_desc(icon, elem.text)
-                    icon_list[icon] = desc
         except:
-            print("No List")
+            try:
+                icon_list_xpath = '/html/body/div[1]/div/div[1]/div/div[3]/\
+                    div/div/div/div[1]/div[1]/div/div/div[4]/div[2]/\
+                    div/div[1]/div[2]/div/div[1]/div/div/div/div/div[2]/div[1]/div/ul'
+                icon_el_list = self.__wait_until_find(driver, icon_list_xpath)
+            except:
+                print("No List")
+                
+        children = icon_el_list.find_elements(By.XPATH, './child::*')
+        
+        for elem in children:
+            src = elem.find_element(By.XPATH, './div/img').get_attribute('src')
+            # print(elem.text)
+            icon = self.get_icon(src)
+            if icon != 'etc':
+                desc = self.get_icon_desc(icon, elem.text)
+                icon_list[icon] = desc
             
         return icon_list
     
@@ -144,7 +151,10 @@ if __name__ == '__main__':
     # Run CodeForcesCrawler with save_path
     fc = FacebookCrawler(save_path)
     # fc.run_one('https://www.facebook.com/7emyolift/')
-    for url in tqdm(url_list, desc="URL"):
-        icon_list = fc.run_one(url)
-        print(icon_list)
+    # for url in tqdm(url_list, desc="URL"):
+    #     icon_list = fc.run_one(url)
+    #     print(icon_list)
+    
+    icon_list = fc.run_one('https://www.facebook.com/purebrazilianhair/')
+    print(icon_list)
     

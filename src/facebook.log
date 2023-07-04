@@ -206,3 +206,453 @@ Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chrom
 Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
 ====== WebDriver manager ======
 Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107e027f0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/91ffb88c392dc45b1d3bc78bfad86591/source
+Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10d3a6040>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/91ffb88c392dc45b1d3bc78bfad86591/source
+Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10d3a6190>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/91ffb88c392dc45b1d3bc78bfad86591/source
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(54, 'Connection reset by peer')': /session/8004f4a98fccd228c7f843917e2a11de/source
+Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1065206a0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/8004f4a98fccd228c7f843917e2a11de/source
+Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1065209a0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/8004f4a98fccd228c7f843917e2a11de/source
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
+====== WebDriver manager ======
+Driver [/Users/sunwookim/.wdm/drivers/chromedriver/mac_arm64/114.0.5735.90/chromedriver] found in cache
