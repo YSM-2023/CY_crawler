@@ -105,16 +105,19 @@ class FacebookCrawler:
                 icon_el_list = self.__wait_until_find(driver, icon_list_xpath)
             except:
                 print("No List")
-                
-        children = icon_el_list.find_elements(By.XPATH, './child::*')
         
-        for elem in children:
-            src = elem.find_element(By.XPATH, './div/img').get_attribute('src')
-            # print(elem.text)
-            icon = self.get_icon(src)
-            if icon != 'etc':
-                desc = self.get_icon_desc(icon, elem.text)
-                icon_list[icon] = desc
+        try:
+            children = icon_el_list.find_elements(By.XPATH, './child::*')
+            
+            for elem in children:
+                src = elem.find_element(By.XPATH, './div/img').get_attribute('src')
+                # print(elem.text)
+                icon = self.get_icon(src)
+                if icon != 'etc':
+                    desc = self.get_icon_desc(icon, elem.text)
+                    icon_list[icon] = desc
+        except:
+            print("No List")
             
         return icon_list
     
