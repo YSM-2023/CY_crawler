@@ -1,6 +1,5 @@
 .env
 *.pyc
 *.txt
-*.log
 *.csv
 .DS_Store
