@@ -32,10 +32,10 @@ options.add_argument('--start-fullscreen')
 options.add_argument('--disable-blink-features=AutomationControlled')
 
 # Save log 
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
-file_handler = logging.FileHandler('facebook.log')
-logger.addHandler(file_handler)
+# logger = logging.getLogger()
+# logger.setLevel(logging.INFO)
+# file_handler = logging.FileHandler('facebook.log')
+# logger.addHandler(file_handler)
 
 
 class FacebookCrawler:
@@ -145,7 +145,6 @@ class FacebookCrawler:
         # print(icon_list)
         return icon_list
         # return email
-        
         
 if __name__ == '__main__':
     save_path = 'FacebookData/'

@@ -69,8 +69,7 @@ class CosmoprofCrawler:
         # df.to_csv("cosmoprofData/cosmoprof.csv", index = False)
         
         self.save("cosmoprof.csv", df)
-           
-    
+
     def save(self, file_name, dataframe):
         if not os.path.isdir(self.save_dir):
             os.makedirs(self.save_dir)
