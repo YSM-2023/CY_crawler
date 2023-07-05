@@ -69,28 +69,32 @@ class Googling:
         facebook_page_url = ''
         
         not_facebook_page_list = ['https://www.facebook.com/pages', 'https://www.facebook.com/business', 'https://www.facebook.com/help', \
-            'https://www.facebook.com/public']
+            'https://www.facebook.com/public', 'https://www.facebook.com/facebook']
         
         html = driver.page_source
         soup = BeautifulSoup(html)
-        
+        cnt = 0
         result_list = soup.select_one('#rso')
         name_list = result_list.find_all('a')
-        
-        for name in name_list:
-            check = True
-            # Get first facebook page
-            if 'www.facebook.com' in name.get('href'):
-                # Except error page
-                for not_facebook_page in not_facebook_page_list:
-                    if not_facebook_page in name.get('href'):
-                        check = False
-                        break
-                    
-                if check == True:
-                    if self.check_website_url(name.get('href'), self.website_url)  == True:
-                        facebook_page_url = name.get('href')
-                        break
+        if name_list != None:
+            for name in name_list:
+                check = True
+                # Get first facebook page
+                if 'www.facebook.com' in name.get('href'):
+                    # print(name.get('href'))
+                    # Except error page
+                    for not_facebook_page in not_facebook_page_list:
+                        if not_facebook_page in name.get('href'):
+                            check = False
+                            break
+                        
+                    if check == True:
+                        if cnt >= 2:
+                            break
+                        cnt += 1
+                        if self.check_website_url(name.get('href'), self.website_url)  == True:
+                            facebook_page_url = name.get('href')
+                            break
                     
             # print(facebook_page_url)
         return facebook_page_url
@@ -99,6 +103,7 @@ class Googling:
         
         fc = FacebookCrawler('')
         icon_list = fc.run_one(facebook_page_url)
+        # print(icon_list)
         
         if facebook_page_url != '' and 'site_url' in icon_list.keys() and icon_list['site_url'] in website_url:
             # print(icon_list['site_url'])
@@ -119,7 +124,7 @@ class Googling:
         return facebook_page_url
 
 if __name__ == '__main__':
-    website_url = 'https://purebrazilian.com/'
+    website_url = 'http://www.innovatethelabel.com'
     
     googling = Googling(website_url)
     result = googling.run_one()

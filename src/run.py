@@ -15,7 +15,7 @@ class Run:
         
     def run_one(self, website_url):
         googling = Googling(website_url)
-        print(website_url)
+        # print(website_url)
         
         facebook_page_url = googling.run_one()
 
@@ -46,19 +46,20 @@ class Run:
                     csv_mapping_list.append(row_dict)
                 line_count += 1
         return csv_mapping_list
+        # return csv_mapping_list[17:] ## reset
     
     def save_data(self, csv_path, email_list):
         exist_data = pd.read_csv(csv_path)
         exist_data.insert(1, 'email', email_list)
         
-        self.save('new_cosmoprof.csv', exist_data)
+        self.save('new_cosmoprof_final.csv', exist_data)
     
     def save_temp(self, csv_path, email_list):
         exist_data = pd.read_csv(csv_path)
         exist_data = exist_data[:len(email_list)]
         exist_data.insert(1, 'email', email_list)
         
-        self.save('new_cosmoprof.csv', exist_data)  
+        self.save('new_cosmoprof2.csv', exist_data)  
         
     def save(self, file_name, dataframe):
         if not os.path.isdir(self.save_path):
@@ -71,9 +72,12 @@ class Run:
     
         email_list = []
         for row in tqdm(csv_mapping_list, desc='Get Email'):
+            print(row['name'])
             sns_list = ast.literal_eval(row['sns'])
             if sns_list[0] != '':
                 email = self.run_facebook(sns_list[0])
+                if email == '':
+                    email = self.run_one(row['website'])
             else:
                 email = self.run_one(row['website'])
             email_list.append(email)

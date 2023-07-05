@@ -105,6 +105,7 @@ class FacebookCrawler:
                 icon_el_list = self.__wait_until_find(driver, icon_list_xpath)
             except:
                 print("No List")
+                return {}
         
         try:
             children = icon_el_list.find_elements(By.XPATH, './child::*')
@@ -118,6 +119,7 @@ class FacebookCrawler:
                     icon_list[icon] = desc
         except:
             print("No List")
+            return {}
             
         return icon_list
     
@@ -131,14 +133,21 @@ class FacebookCrawler:
             
     def get_driver(self, url):
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
-        driver.get(url)
-        time.sleep(1)
-        
+        for i in range(5):
+            driver.get(url)
+            time.sleep(1)
+            
+            if 'https://www.facebook.com/login' not in driver.current_url:
+                break
+        # print(driver.current_url)
         return driver
     
     def run_one(self, url):
 
         driver = self.get_driver(url)
+        
+        if 'https://www.facebook.com/login' in driver.current_url:
+            return {}
         self.click_escape_key(driver)
         # email = self.get_email(driver)
         icon_list = self.get_icon_list(driver)
@@ -157,6 +166,6 @@ if __name__ == '__main__':
     #     icon_list = fc.run_one(url)
     #     print(icon_list)
     
-    icon_list = fc.run_one('https://www.facebook.com/purebrazilianhair/')
+    icon_list = fc.run_one('https://www.facebook.com/1821manmade')
     print(icon_list)
     
