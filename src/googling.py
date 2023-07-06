@@ -92,8 +92,12 @@ class Googling:
         html = driver.page_source
         soup = BeautifulSoup(html)
         cnt = 0
-        result_list = soup.select_one('#rso')
-        name_list = result_list.find_all('a')
+        
+        try:
+            result_list = soup.select_one('#rso')
+            name_list = result_list.find_all('a')
+        except:
+            return ''
         
         for name in name_list:
             check = True
