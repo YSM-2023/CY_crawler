@@ -5,6 +5,7 @@ import os
 import warnings
 from tqdm import tqdm
 import logging
+from dotenv import load_dotenv
 from lxml import etree
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -37,11 +38,17 @@ options.add_argument('--disable-blink-features=AutomationControlled')
 # file_handler = logging.FileHandler('facebook.log')
 # logger.addHandler(file_handler)
 
-
+## For Crawling the Facebook page
 class FacebookCrawler:
     
     def __init__(self, save_path):
         self.save_path = save_path
+        
+        load_dotenv()
+
+        ## For facebook login
+        self.FACEBOOK_ID = os.environ.get('FACEBOOK_ID')
+        self.FACEBOOK_PW = os.environ.get('FACEBOOK_PW')
         
     def __wait_until_find(self, driver, xpath):
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, xpath)))
@@ -54,7 +61,7 @@ class FacebookCrawler:
         driver.execute_script("arguments[0].click();", button)
 
     def get_icon(self, src):
-        # print(src)
+        ## For make category using src of icon
         icon = ''
         if src in ['https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/qF_eflLVarp.png', \
             'https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/4PEEs7qlhJk.png']:
@@ -76,6 +83,7 @@ class FacebookCrawler:
         return icon
     
     def get_icon_desc(self, icon, text):
+        ## For get icon description
         desc = ''
         if icon == 'info':
             desc = text.split('·')[1]
@@ -90,6 +98,7 @@ class FacebookCrawler:
         return desc
     
     def get_icon_list(self, driver):
+        ## Crawling the icons
         icon_list = {}
         icon_list_xpath = '/html/body/div[1]/div/div[1]/div/div[3]/\
             div/div/div/div[1]/div[1]/div/div/div[4]/div[2]/\
@@ -124,6 +133,7 @@ class FacebookCrawler:
         return icon_list
     
     def click_escape_key(self, driver):
+        ## When login popup shows
         try:
             action = ActionChains(driver)
             action.send_keys(Keys.ESCAPE).perform()
@@ -131,41 +141,51 @@ class FacebookCrawler:
         except:
             print("Click Error")
             
+    def login(self, driver):
+        ## When the page goes to login page
+        try:
+            id_field = self.__wait_until_find(driver, '//*[@id="email"]')
+            id_field.send_keys(self.FACEBOOK_ID)
+            pw_field = self.__wait_until_find(driver, '//*[@id="pass"]')
+            pw_field.send_keys(self.FACEBOOK_PW)
+
+            self.__wait_and_click(driver, '//*[@id="loginbutton"]')
+            
+        except:
+            print('Fail Login')
+            
     def get_driver(self, url):
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
-        for i in range(5):
-            driver.get(url)
-            time.sleep(1)
+        driver.get(url)
+        
+        if 'https://www.facebook.com/login' in driver.current_url:
+            self.login(driver)
             
-            if 'https://www.facebook.com/login' not in driver.current_url:
-                break
-        # print(driver.current_url)
         return driver
     
     def run_one(self, url):
-
+        
+        ## Go to facebook page
         driver = self.get_driver(url)
         
         if 'https://www.facebook.com/login' in driver.current_url:
             return {}
+        
+        ## Close the login popup
         self.click_escape_key(driver)
-        # email = self.get_email(driver)
+        
+        ## Get list of facebook page description
         icon_list = self.get_icon_list(driver)
         # print(icon_list)
         return icon_list
-        # return email
         
 if __name__ == '__main__':
     save_path = 'FacebookData/'
     url_list = ['https://www.facebook.com/Solesence/', 'https://www.facebook.com/1821ManMade/', 'https://www.facebook.com/7emyolift/', 'https://www.facebook.com/love7thheaven']
 
-    # Run CodeForcesCrawler with save_path
+    # Run FacebookCrawler with save_path
     fc = FacebookCrawler(save_path)
-    # fc.run_one('https://www.facebook.com/7emyolift/')
-    # for url in tqdm(url_list, desc="URL"):
-    #     icon_list = fc.run_one(url)
-    #     print(icon_list)
     
-    icon_list = fc.run_one('https://www.facebook.com/1821manmade')
+    icon_list = fc.run_one('https://www.facebook.com/APCPACKAGING')
     print(icon_list)
     
