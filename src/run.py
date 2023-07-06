@@ -25,12 +25,12 @@ options = Options()
 user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
 options.add_argument('user-agent=' + user_agent)
 ## for background
-# options.add_argument("--headless")
+options.add_argument("--headless")
 options.add_argument('--window-size=1920, 1080')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
-# options.add_argument('--start-maximized')
-# options.add_argument('--start-fullscreen')
+options.add_argument('--start-maximized')
+options.add_argument('--start-fullscreen')
 options.add_argument('--disable-blink-features=AutomationControlled')
 options.add_argument('lang=en')
 options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
@@ -41,6 +41,7 @@ class Run:
     def __init__(self, save_path, driver):
         self.save_path = save_path
         self.driver = driver
+        
         ## For facebook login
         load_dotenv()
         self.FACEBOOK_ID = os.environ.get('FACEBOOK_ID')

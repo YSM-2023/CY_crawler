@@ -62,12 +62,6 @@ class Googling:
     def __init__(self, website_url):
         self.website_url = website_url
         
-        load_dotenv()
-
-        # ## For facebook login
-        # self.FACEBOOK_ID = os.environ.get('FACEBOOK_ID')
-        # self.FACEBOOK_PW = os.environ.get('FACEBOOK_PW')
-        
     def __wait_until_find(self, driver, xpath):
         WebDriverWait(driver, 7).until(EC.presence_of_element_located((By.XPATH, xpath)))
         element = driver.find_element(By.XPATH, xpath)
@@ -114,9 +108,9 @@ class Googling:
                     
                 if check == True:
                     ## For prevent too many try.. (late time issue)
-                    # if cnt >= 2:
-                    #     break
-                    # cnt += 1
+                    if cnt >= 2:
+                        break
+                    cnt += 1
                     
                     ## Checking the website url between DB and facebook -> prevent wrong info
                     if self.check_website_url(driver, name.get('href'), website_url)  == True:
@@ -146,41 +140,16 @@ class Googling:
             action.send_keys(Keys.ESCAPE).perform()
         except:
             print("Click Error")
-        
-    # def login(self, driver):
-        
-    #     try:
-    #         id_field = self.__wait_until_find(driver, '//*[@id="email"]')
-    #         id_field.send_keys(self.FACEBOOK_ID)
-    #         pw_field = self.__wait_until_find(driver, '//*[@id="pass"]')
-    #         pw_field.send_keys(self.FACEBOOK_PW)
-    #         self.__wait_and_click_classname(driver, '_42ft._4jy0._6lth._4jy6._4jy1.selected._51sy')
-            
-    #         self.click_escape_key(driver)
-    #     except:
-    #         print('Fail Login')
     
     def run(self, driver):
-        # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
-
-        # #login facebook before start searching
-        # driver.get("https://facebook.com")
-        # self.login(driver)
-        
         ## search keyword: facebook page {website url}
         ## add '&hl=en' to get result of english
-        # facebook_page_urls=[]
-        
-        # for website_url in self.website_urls:
         search_url = 'https://www.google.com/search?q=facebook page '+ self.website_url + '&hl=en'
         
         driver.get(search_url)
-        
-        # time.sleep(3000)
+
         ## Get facebook page url
         facebook_page_url = self.get_facebook_page(driver, self.website_url)
-        
-        # facebook_page_urls.append(facebook_page_url)
             
         return facebook_page_url
 

@@ -155,24 +155,10 @@ class FacebookCrawler:
             
         except:
             print('Fail Login')
-            
-    # def get_driver(self, url):
-    #     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
-    #     driver.get(url)
-        
-    #     if 'https://www.facebook.com/login' in driver.current_url:
-    #         self.login(driver)
-            
-    #     return driver
     
     def run_one(self, url):
-        
         ## Go to facebook page
         self.driver.get(url)
-        
-        # if 'https://www.facebook.com/login' in driver.current_url:
-        #     return {}
-        
         ## Get list of facebook page description
         icon_list = self.get_icon_list()
         # print(icon_list)
