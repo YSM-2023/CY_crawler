@@ -18,7 +18,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.alert import Alert
 
-from dotenv import load_dotenv
 from facebook import FacebookCrawler 
 
 warnings.filterwarnings('ignore')
@@ -26,13 +25,13 @@ options = Options()
 user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
 options.add_argument('user-agent=' + user_agent)
 ## for background
-# options.add_argument("--headless")
-# options.add_argument('--window-size=1920, 1080')
-# options.add_argument('--no-sandbox')
-# options.add_argument('--disable-dev-shm-usage')
-# options.add_argument('--start-maximized')
-# options.add_argument('--start-fullscreen')
-# options.add_argument('--disable-blink-features=AutomationControlled')
+options.add_argument("--headless")
+options.add_argument('--window-size=1920, 1080')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
+options.add_argument('--start-maximized')
+options.add_argument('--start-fullscreen')
+options.add_argument('--disable-blink-features=AutomationControlled')
 # options.add_argument('--user-data-dir=./tmp_cache/bwj')
 
 ## For using PROXY (Not using now)
@@ -60,42 +59,34 @@ logger.addHandler(file_handler)
 ## For Googling the facebook page
 class Googling:
     
-    def __init__(self, website_urls):
-        self.website_urls = website_urls
+    def __init__(self, website_url):
+        self.website_url = website_url
         
         load_dotenv()
 
-        ## For facebook login
-        self.FACEBOOK_ID = os.environ.get('FACEBOOK_ID')
-        self.FACEBOOK_PW = os.environ.get('FACEBOOK_PW')
+        # ## For facebook login
+        # self.FACEBOOK_ID = os.environ.get('FACEBOOK_ID')
+        # self.FACEBOOK_PW = os.environ.get('FACEBOOK_PW')
         
     def __wait_until_find(self, driver, xpath):
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, xpath)))
+        WebDriverWait(driver, 7).until(EC.presence_of_element_located((By.XPATH, xpath)))
         element = driver.find_element(By.XPATH, xpath)
         return element
     
     def __wait_until_find_classname(self, driver, classname):
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, classname)))
+        WebDriverWait(driver, 7).until(EC.presence_of_element_located((By.CLASS_NAME, classname)))
         element = driver.find_element(By.CLASS_NAME, classname)
         return element
             
     def __wait_and_click(self, driver, xpath):
-        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+        WebDriverWait(driver, 7).until(EC.element_to_be_clickable((By.XPATH, xpath)))
         button = driver.find_element(By.XPATH, xpath)
         driver.execute_script("arguments[0].click();", button)
         
     def __wait_and_click_classname(self, driver, classname):
-        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, classname)))
+        WebDriverWait(driver, 7).until(EC.element_to_be_clickable((By.CLASS_NAME, classname)))
         button = driver.find_element(By.CLASS_NAME, classname)
         driver.execute_script("arguments[0].click();", button)
-        
-    def get_driver(self, url):
-        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
-
-        driver.get(url)
-        time.sleep(1)
-        
-        return driver
     
     def get_facebook_page(self, driver, website_url):
         facebook_page_url = ''
@@ -156,45 +147,46 @@ class Googling:
         except:
             print("Click Error")
         
-    def login(self, driver):
+    # def login(self, driver):
         
-        try:
-            id_field = self.__wait_until_find(driver, '//*[@id="email"]')
-            id_field.send_keys(self.FACEBOOK_ID)
-            pw_field = self.__wait_until_find(driver, '//*[@id="pass"]')
-            pw_field.send_keys(self.FACEBOOK_PW)
-            self.__wait_and_click_classname(driver, '_42ft._4jy0._6lth._4jy6._4jy1.selected._51sy')
+    #     try:
+    #         id_field = self.__wait_until_find(driver, '//*[@id="email"]')
+    #         id_field.send_keys(self.FACEBOOK_ID)
+    #         pw_field = self.__wait_until_find(driver, '//*[@id="pass"]')
+    #         pw_field.send_keys(self.FACEBOOK_PW)
+    #         self.__wait_and_click_classname(driver, '_42ft._4jy0._6lth._4jy6._4jy1.selected._51sy')
             
-            self.click_escape_key(driver)
-        except:
-            print('Fail Login')
+    #         self.click_escape_key(driver)
+    #     except:
+    #         print('Fail Login')
     
-    def run(self):
-        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+    def run(self, driver):
+        # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
-        #login facebook before start searching
-        driver.get("https://facebook.com")
-        self.login(driver)
+        # #login facebook before start searching
+        # driver.get("https://facebook.com")
+        # self.login(driver)
         
         ## search keyword: facebook page {website url}
         ## add '&hl=en' to get result of english
-        facebook_page_urls=[]
-        for website_url in website_urls:
-            search_url = 'https://www.google.com/search?q=facebook page '+ website_url + '&hl=en'
+        # facebook_page_urls=[]
+        
+        # for website_url in self.website_urls:
+        search_url = 'https://www.google.com/search?q=facebook page '+ self.website_url + '&hl=en'
+        
+        driver.get(search_url)
+        
+        # time.sleep(3000)
+        ## Get facebook page url
+        facebook_page_url = self.get_facebook_page(driver, self.website_url)
+        
+        # facebook_page_urls.append(facebook_page_url)
             
-            driver.get(search_url)
-            
-            # time.sleep(3000)
-            ## Get facebook page url
-            facebook_page_url = self.get_facebook_page(driver, website_url)
-            
-            facebook_page_urls.append(facebook_page_url)
-            
-        return facebook_page_urls
+        return facebook_page_url
 
 if __name__ == '__main__':
     website_urls = ['http://www.ellamila.com','http://www.queenspack.com', 'http://www.innovatethelabel.com', 'http://www.celebluxury.com', 'http://www.raybae.com', 'https://purepapayacareusa.com', 'http://bebellacosmetics.com/', 'http://www.zoefountain.com', 'http://www.ameonskin.com', 'http://www.amazingshinenails.com']
 
-    googling = Googling(website_urls)
+    googling = Googling('http://www.ellamila.com')
     result = googling.run()
     print(result)
