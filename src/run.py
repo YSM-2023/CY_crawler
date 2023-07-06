@@ -1,24 +1,104 @@
 from facebook import FacebookCrawler 
 from googling import Googling 
 
+import csv
+from tqdm import tqdm
+import json
+import ast
+import pandas as pd
+import os
+
+## For run the csv file and crawling the email
 class Run:
     
     def __init__(self, save_path):
         self.save_path = save_path
+    
+    def run_facebook(self, facebook_page_url):
+        ## For get facebook page email
+        fc = FacebookCrawler('')
+        icon_list = fc.run_one(facebook_page_url)
+        # print(facebook_page_url)
+        
+        ## Checking if email is in icon list
+        if 'email' in icon_list.keys():
+            return icon_list['email']
+        else:
+            return ''
         
     def run_one(self, website_url):
         googling = Googling(website_url)
-        print(website_url)
+        # print(website_url)
         
+        ## Get facebook page url
         facebook_page_url = googling.run_one()
 
+        ## Get facebook email
         if facebook_page_url != '':
-            fc = FacebookCrawler('')
-            icon_list = fc.run_one(facebook_page_url)
-            # print(facebook_page_url)
-            return icon_list
-        return 'Fail'
+            return self.run_facebook(facebook_page_url)
+        return ''
         
+    def get_csv(self, file_path):
+        ## Get CSV file
+        csv_mapping_list = []
+        with open(file_path) as my_data:
+            csv_reader = csv.reader(my_data, delimiter=",")
+            line_count = 0
+            for line in csv_reader:
+                if line_count == 0:
+                    header = line
+                else:
+                    row_dict = {key: value for key, value in zip(header, line)}
+                    csv_mapping_list.append(row_dict)
+                line_count += 1
+        return csv_mapping_list[58:]
+        # return csv_mapping_list
+    
+    def save_data(self, csv_path, email_list):
+        ## save all data
+        exist_data = pd.read_csv(csv_path)
+        exist_data.insert(1, 'email', email_list)
+        
+        self.save('new_cosmoprof_final.csv', exist_data)
+    
+    def save_temp(self, csv_path, email_list):
+        ## save temp data
+        exist_data = pd.read_csv(csv_path)
+        # exist_data = exist_data[:len(email_list)]
+        exist_data = exist_data[58:58+len(email_list)]
+        exist_data.insert(1, 'email', email_list)
+        
+        self.save('new_cosmoprof2.csv', exist_data)  
+        
+    def save(self, file_name, dataframe):
+        ## save to path
+        if not os.path.isdir(self.save_path):
+            os.makedirs(self.save_path)
+
+        dataframe.to_csv(self.save_path+file_name, index = False)   
+        
+    def run(self, csv_path):
+        ## Get csv list
+        csv_mapping_list = self.get_csv(csv_path)
+    
+        email_list = []
+        for row in tqdm(csv_mapping_list, desc='Get Email'):
+            print(row['name'])
+            sns_list = ast.literal_eval(row['sns'])
+            
+            ## When facebook url exist -> Directly get facebook email
+            if sns_list[0] != '':
+                email = self.run_facebook(sns_list[0])
+                ## When facebook url is wrong -> find with website_url (googling)
+                if email == '':
+                    email = self.run_one(row['website'])
+            ## When facebook url doesn't exist -> find with website_url (googling)
+            else:
+                email = self.run_one(row['website'])
+            email_list.append(email)
+            ## save one
+            self.save_temp(csv_path, email_list)
+        self.save_data(csv_path, email_list)
     
     
 if __name__ == '__main__':
@@ -27,8 +107,5 @@ if __name__ == '__main__':
         'http://www.pyramid-usa.com', 'https://pyurvana.com', 'http://www.hollyren.com', 'http://www.ibeautyac.com', \
         'http://www.isabella-lashes.com', 'http://www.lashnew.com', 'http://www.worldbeautyeyelashes.com ']
     
-    run = Run('')
-    
-    for website_url in website_url_list:
-        result = run.run_one(website_url)
-        print(result)
+    run = Run('./')
+    run.run("cosmoprof.csv")

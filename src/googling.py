@@ -5,6 +5,7 @@ import os
 import warnings
 from tqdm import tqdm
 import logging
+from dotenv import load_dotenv
 from lxml import etree
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -32,10 +33,21 @@ options.add_argument('--start-maximized')
 options.add_argument('--start-fullscreen')
 options.add_argument('--disable-blink-features=AutomationControlled')
 
+## For using PROXY (Not using now)
+# webdriver.DesiredCapabilities.CHROME['proxy'] = {
+#     "httpProxy": PROXY,
+#     "ftpProxy": PROXY,
+#     "sslProxy": PROXY,
+#     "proxyType": "MANUAL"
+# }
+# webdriver.DesiredCapabilities.CHROME['acceptSslCerts']=True
+
+## for Recaptcha-Solver
+options.add_extension('/Users/sunwookim/Library/Application Support/Google/Chrome/Default/Extensions/mpbjkejclgfgadiemmefgebjfooflfhl/2.0.1_0.crx')
+
 ## for english
-# options.add_argument('lang=en')
+options.add_argument('lang=en')
 options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
-# options.add_argument("accept-language=en-US")
 
 # Save log 
 logger = logging.getLogger()
@@ -43,6 +55,7 @@ logger.setLevel(logging.INFO)
 file_handler = logging.FileHandler('googling.log')
 logger.addHandler(file_handler)
 
+## For Googling the facebook page
 class Googling:
     
     def __init__(self, website_url):
@@ -68,38 +81,50 @@ class Googling:
     def get_facebook_page(self, driver):
         facebook_page_url = ''
         
+        ## For prevent wrong facebook page
         not_facebook_page_list = ['https://www.facebook.com/pages', 'https://www.facebook.com/business', 'https://www.facebook.com/help', \
-            'https://www.facebook.com/public']
+            'https://www.facebook.com/public', 'https://www.facebook.com/facebook']
         
         html = driver.page_source
         soup = BeautifulSoup(html)
-        
+        cnt = 0
         result_list = soup.select_one('#rso')
         name_list = result_list.find_all('a')
         
         for name in name_list:
             check = True
-            # Get first facebook page
+            ## Get first facebook page
             if 'www.facebook.com' in name.get('href'):
-                # Except error page
+                # print(name.get('href'))
+                ##  Except error page
                 for not_facebook_page in not_facebook_page_list:
                     if not_facebook_page in name.get('href'):
                         check = False
                         break
                     
                 if check == True:
+                    ## For prevent too many try.. (late time issue)
+                    if cnt >= 2:
+                        break
+                    cnt += 1
+                    
+                    ## Checking the website url between DB and facebook -> prevent wrong info
                     if self.check_website_url(name.get('href'), self.website_url)  == True:
                         facebook_page_url = name.get('href')
                         break
-                    
+                
             # print(facebook_page_url)
         return facebook_page_url
     
     def check_website_url(self, facebook_page_url, website_url):
+        ## For checking the website url between DB and facebook
         
+        ## Get facebook page's email
         fc = FacebookCrawler('')
         icon_list = fc.run_one(facebook_page_url)
+        # print(icon_list)
         
+        ## Checking
         if facebook_page_url != '' and 'site_url' in icon_list.keys() and icon_list['site_url'] in website_url:
             # print(icon_list['site_url'])
             return True
@@ -107,20 +132,24 @@ class Googling:
         
     
     def run_one(self):
-        # open google search
-        search_url = 'http://www.google.com/search?q=facebook page '+ self.website_url + '&gl=us&hl=en'
+        ## search keyword: facebook page {website url}
+        ## add '&hl=en' to get result of english
+        search_url = 'https://www.google.com/search?q=facebook page '+ self.website_url + '&hl=en'
         driver = self.get_driver(search_url)
-        
+
+        ## Get facebook page url
         facebook_page_url = self.get_facebook_page(driver)
         
+        ## When Facebook page is correct
         if facebook_page_url != '' and self.check_website_url(facebook_page_url, self.website_url) == True:
             return facebook_page_url
         
-        return facebook_page_url
+        ## When Facebook page is wrong
+        return ''
 
 if __name__ == '__main__':
-    website_url = 'https://purebrazilian.com/'
-    
+    website_url = 'http://www.queenspack.com'
+
     googling = Googling(website_url)
     result = googling.run_one()
     print(result)
