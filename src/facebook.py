@@ -24,12 +24,12 @@ options = Options()
 user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
 options.add_argument('user-agent=' + user_agent)
 ## for background
-options.add_argument("headless")
+# options.add_argument("headless")
 options.add_argument('--window-size=1920, 1080')
 options.add_argument('--no-sandbox')
 options.add_argument("--disable-dev-shm-usage")
-options.add_argument('--start-maximized')
-options.add_argument('--start-fullscreen')
+# options.add_argument('--start-maximized')
+# options.add_argument('--start-fullscreen')
 options.add_argument('--disable-blink-features=AutomationControlled')
 
 # Save log 
@@ -158,9 +158,8 @@ class FacebookCrawler:
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
         driver.get(url)
         
-        if 'https://www.facebook.com/login' in driver.current_url:
-            self.login(driver)
-            
+        self.login(driver)
+        
         return driver
     
     def run_one(self, url):
@@ -186,6 +185,6 @@ if __name__ == '__main__':
     # Run FacebookCrawler with save_path
     fc = FacebookCrawler(save_path)
     
-    icon_list = fc.run_one('https://www.facebook.com/APCPACKAGING')
+    icon_list = fc.run_one('https://www.facebook.com/Solesence/')
     print(icon_list)
     
