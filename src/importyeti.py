@@ -70,9 +70,6 @@ class ImportyetiCrawler:
         soup = self.get_request(url, headers=headers)
         panel = self.__wait_until_find(self.driver, '//*[@id="headlessui-tabs-panel-30"]')
 
-        # childElements = panel.find_elements(By.XPATH, '*')
-        # print(len(childElements))
-
         page_li = panel.find_elements(By.XPATH, '*/li')
         page_max_num = int(page_li[-2].text)
         for i in range(page_max_num):
@@ -85,17 +82,11 @@ class ImportyetiCrawler:
             self.crawl_child_elements(childElements)
             if i == page_max_num-1:
                 break
-            # time.sleep(15)
-            # print(page_li[-1].get_attribute("class"))
-            # page_li[-1].click()
-            # print("clicked!!!!")
             self.driver.close()
             self.__init__()
             url = url.replace(str(i), str(i+1))
             soup = self.get_request(url, headers)
-            # self.driver.switch_to.window(self.driver.window_handles[-1])
             print(self.driver.current_url)
-            # os.rmdir("C:\chrometemp")
             time.sleep(15)
 
     def crawl_child_elements(self, childElements):
@@ -113,7 +104,8 @@ class ImportyetiCrawler:
                 #Buyer-address
                 print(childFlex[1].text)
                 #Buyer-info
-                print(childFlex[7].text+", "+childFlex[8].text+", "+childFlex[9].text)
+                for i in range(5, len(childFlex)):
+                    print(childFlex[i].text)
                 country = child.find_element(By.XPATH, '*/strong/a/div')
                 print(country.get_attribute("class"))
 
@@ -123,7 +115,5 @@ class ImportyetiCrawler:
                 
 
 
-
 crawler = ImportyetiCrawler()
 crawler.crawl(0, "https://www.importyeti.com/search?page=0&q=cosmetics")
-# crawler.crawl(0, "https://www.importyeti.com/search?page=1&q=cosmetics", '{"User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5)\AppleWebKit 537.36 (KHTML, like Gecko) Chrome",	"Accept":"text/html,application/xhtml+xml,application/xml;\q=0.9,imgwebp,*/*;q=0.8"}')
