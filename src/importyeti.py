@@ -11,12 +11,19 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select, WebDriverWait
 import subprocess
 import os
+import pandas as pd
+import csv
 
 
 class ImportyetiCrawler:
-    def __init__(self) -> None:
+    def __init__(self, file_name, save_dir) -> None:
+        self.set_driver()
+        self.save_dir = save_dir
+        self.file_name = file_name
+        self.set_csv()
+    
+    def set_driver(self):
         # subprocess.Popen(r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\chrometemp"')
-        
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         # options.add_argument('--headless') #내부 창을 띄울 수 없으므로 설정
@@ -29,7 +36,7 @@ class ImportyetiCrawler:
         )
         self.driver.implicitly_wait(10)
         print("setted webdriver\n")
-    
+
     def get_request(self, url, headers=""):
         self.driver.get(url)
         if headers=="":
@@ -39,18 +46,6 @@ class ImportyetiCrawler:
         soup = BeautifulSoup(self.webpage.content, "html.parser")
         print("got request from website\n")
         return soup
-
-    # def set_csv(self, id, table_name, cols):
-    #     f_name = str(id)+".csv"
-    #     f = open(f_name, 'w', encoding='utf-8')
-    #     f.write(table_name+"\n")
-    #     for col in cols:
-    #         f.write(col)
-    #         if not col is cols[-1]:
-    #             f.write("|")
-    #     f.write("\n")
-    #     print("made csv file for saving crawled data\n")
-    #     return f
 
     def __wait_until_find(self, driver, xpath):
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, xpath)))
@@ -62,11 +57,7 @@ class ImportyetiCrawler:
         button = driver.find_element(By.XPATH, xpath)
         driver.execute_script("arguments[0].click();", button)
 
-    def crawl_linkedin(self, url, headers=""):
-        soup = self.get_request(url, headers=headers)
-        print(self.driver.current_url)        
-
-    def crawl(self, id, url, headers=""):
+    def crawl(self, url, headers=""):
         soup = self.get_request(url, headers=headers)
         panel = self.__wait_until_find(self.driver, '//*[@id="headlessui-tabs-panel-30"]')
 
@@ -75,45 +66,65 @@ class ImportyetiCrawler:
         for i in range(page_max_num):
             panel = self.__wait_until_find(self.driver, '//*[@id="headlessui-tabs-panel-30"]')
             childElements = panel.find_elements(By.XPATH, '*')
-            print(len(childElements))
-
-            print("------------------------------------", i)
-            print("\n")
             self.crawl_child_elements(childElements)
             if i == page_max_num-1:
                 break
             self.driver.close()
-            self.__init__()
+            self.set_driver()
             url = url.replace(str(i), str(i+1))
             soup = self.get_request(url, headers)
             print(self.driver.current_url)
             time.sleep(15)
+        self.driver.quit()
 
     def crawl_child_elements(self, childElements):
+        name_li = []
+        address_li = []
+        info_li = []
+        country_li = []
+
         for i in range(0, len(childElements)):
             if i==len(childElements)-1:
                 #다음 페이지 이동
                 break
             if i>0:
-                print("============", i)
                 child = childElements[i].find_element(By.XPATH, '*/div[2]/div')
                 childFlex = child.find_elements(By.XPATH, '*')
-                print(len(childFlex))
                 #Buyer-name
-                print(childFlex[0].text)
+                name_li.append(childFlex[0].text)
                 #Buyer-address
-                print(childFlex[1].text)
+                address_li.append(childFlex[1].text)
                 #Buyer-info
+                buyer_info = ""
                 for i in range(5, len(childFlex)):
-                    print(childFlex[i].text)
-                country = child.find_element(By.XPATH, '*/strong/a/div')
-                print(country.get_attribute("class"))
+                    buyer_info += childFlex[i].text + "|"
+                info_li.append(buyer_info)
+                #Buyer-country
+                countryElement = child.find_element(By.XPATH, '*/strong/a/div')
+                country_li.append(countryElement.get_attribute("class")[-2:])
+        self.save_csv(name_li, address_li, info_li, country_li)
 
-                # 나중에 linkedin crawler 함수 호출
-                linkedin_url = "https://www.linkedin.com/search/results/companies/?keywords=" + childElements[0].text.replace(' ', '%20')
-                # self.crawl_linkedin(linkedin_url)
-                
+    def save_csv(self, name_li, address_li, info_li, country_li):
+        df = pd.DataFrame()
+        df['name']= name_li
+        df['address'] = address_li
+        df['info'] = info_li
+        df['country'] = country_li
+        print(df)
+        df.to_csv(self.save_dir+self.file_name+".csv", index=False, header=False, mode='a')
 
+    def set_csv(self):
+        if not os.path.isdir(self.save_dir):
+            os.makedirs(self.save_dir)
+        columns=['name', 'address', 'info', 'country']
+        f = open(self.save_dir+self.file_name+".csv", 'w', encoding='utf-8')
+        write = csv.writer(f)
+        write.writerow(columns)
 
-crawler = ImportyetiCrawler()
-crawler.crawl(0, "https://www.importyeti.com/search?page=0&q=cosmetics")
+if __name__ == '__main__':
+    url = "https://www.importyeti.com/search?page=0&q=cosmetics"
+    save_dir = 'importyetiData/'
+    file_name = 'importyeti'
+
+    crawler = ImportyetiCrawler(save_dir=save_dir, file_name=file_name)
+    crawler.crawl(url=url)
