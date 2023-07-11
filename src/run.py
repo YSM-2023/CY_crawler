@@ -19,21 +19,28 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
+# import subprocess
 
 warnings.filterwarnings('ignore')
 options = Options()
 user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
 options.add_argument('user-agent=' + user_agent)
 ## for background
-options.add_argument("--headless")
+# options.add_argument("--headless")
 options.add_argument('--window-size=1920, 1080')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
-options.add_argument('--start-maximized')
-options.add_argument('--start-fullscreen')
+# options.add_argument('--start-maximized')
+# options.add_argument('--start-fullscreen')
 options.add_argument('--disable-blink-features=AutomationControlled')
 options.add_argument('lang=en')
-options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
+# options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
+
+# # recaptcha solver extension
+# options.add_extension('C:/Users/user/Desktop/CY/Buster2.0.1.0.crx')
+
+# #디버거모드
+# options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
 
 ## For run the csv file and crawling the email
 class Run:
@@ -124,7 +131,7 @@ class Run:
         # exist_data = exist_data[58:58+len(email_list)]
         exist_data.insert(1, 'email', email_list)
         
-        self.save('new_cosmoprof2.csv', exist_data)  
+        self.save('new_cosmoprof3.csv', exist_data)  
         
     def save(self, file_name, dataframe):
         ## save to path
@@ -174,7 +181,11 @@ class Run:
     
     
 if __name__ == '__main__':
+    ## 디버거 크롬 구동
+    # subprocess.Popen(r'C:\Program Files\Google\Chrome\Application\chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\Users\user\Desktop\CY\chromeCookie"')
+
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+    
         
     website_url_list = ['http://azzurrabelli.it', 'http://www.thepuffcuff.com', 'http://zhenqingcosmetics.com/', 'https://purebrazilian.com/',\
         'http://www.pyramid-usa.com', 'https://pyurvana.com', 'http://www.hollyren.com', 'http://www.ibeautyac.com', \
@@ -182,3 +193,5 @@ if __name__ == '__main__':
     
     run = Run('./', driver)
     run.run("cosmoprofData/cosmoprof.csv")
+    
+    driver.quit()
