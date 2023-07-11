@@ -82,6 +82,8 @@ class ImportyetiCrawler:
         address_li = []
         info_li = []
         country_li = []
+        source_li = []
+        source = "importyeti"
 
         for i in range(0, len(childElements)):
             if i==len(childElements)-1:
@@ -93,30 +95,35 @@ class ImportyetiCrawler:
                 #Buyer-name
                 name_li.append(childFlex[0].text)
                 #Buyer-address
-                address_li.append(childFlex[1].text)
+                address_li.append(childFlex[1].text.replace('"', ''))
                 #Buyer-info
                 buyer_info = ""
                 for i in range(5, len(childFlex)):
-                    buyer_info += childFlex[i].text + "|"
+                    buyer_info += childFlex[i].text
+                    if i<len(childFlex)-1: 
+                        buyer_info += "|"
                 info_li.append(buyer_info)
                 #Buyer-country
                 countryElement = child.find_element(By.XPATH, '*/strong/a/div')
                 country_li.append(countryElement.get_attribute("class")[-2:])
-        self.save_csv(name_li, address_li, info_li, country_li)
+                #Buyer-source
+                source_li.append(source)
+        self.save_csv(name_li, address_li, info_li, country_li, source_li)
 
-    def save_csv(self, name_li, address_li, info_li, country_li):
+    def save_csv(self, name_li, address_li, info_li, country_li, source_li):
         df = pd.DataFrame()
         df['name']= name_li
         df['address'] = address_li
         df['info'] = info_li
         df['country'] = country_li
+        df['source'] = source_li
         print(df)
         df.to_csv(self.save_dir+self.file_name+".csv", index=False, header=False, mode='a')
 
     def set_csv(self):
         if not os.path.isdir(self.save_dir):
             os.makedirs(self.save_dir)
-        columns=['name', 'address', 'info', 'country']
+        columns=['name', 'address', 'info', 'country', 'source']
         f = open(self.save_dir+self.file_name+".csv", 'w', encoding='utf-8')
         write = csv.writer(f)
         write.writerow(columns)
