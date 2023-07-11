@@ -32,7 +32,6 @@ options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--start-maximized')
 options.add_argument('--start-fullscreen')
 options.add_argument('--disable-blink-features=AutomationControlled')
-# options.add_argument('--user-data-dir=./tmp_cache/bwj')
 
 ## For using PROXY (Not using now)
 # webdriver.DesiredCapabilities.CHROME['proxy'] = {
@@ -87,7 +86,7 @@ class Googling:
         
         ## For prevent wrong facebook page
         not_facebook_page_list = ['https://www.facebook.com/pages', 'https://www.facebook.com/business', 'https://www.facebook.com/help', \
-            'https://www.facebook.com/public', 'https://www.facebook.com/facebook', '/posts/', '/photos/', '/shop/']
+            'https://www.facebook.com/public', 'https://www.facebook.com/facebook', '/posts/', '/photos/', '/shop/', '/watch/', '/videos/']
         
         html = driver.page_source
         soup = BeautifulSoup(html)
@@ -152,7 +151,7 @@ class Googling:
         
         driver.get(search_url)
 
-        ## Get facebook page url
+        ## Get facebook page url            
         facebook_page_url = self.get_facebook_page(driver, self.website_url)
             
         return facebook_page_url
