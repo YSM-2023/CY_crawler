@@ -59,7 +59,7 @@ class CosmoprofCrawler:
         button = driver.find_element(By.XPATH, xpath)
         driver.execute_script("arguments[0].click();", button)
         
-    def save_data(self, name, country, website, sns, source):
+    def save_data(self, file_name, name, country, website, sns, source):
         df = pd.DataFrame(name, columns = ['name'])
         df['country'] = country
         df['website'] = website
@@ -68,7 +68,7 @@ class CosmoprofCrawler:
         
         # df.to_csv("cosmoprofData/cosmoprof.csv", index = False)
         
-        self.save("cosmoprof.csv", df)
+        self.save(file_name, df)
 
     def save(self, file_name, dataframe):
         if not os.path.isdir(self.save_dir):
@@ -184,13 +184,13 @@ class CosmoprofCrawler:
         
         
 if __name__ == '__main__':
-    url="https://s23.a2zinc.net/clients/pba/cosmoprof2022/Public/Exhibitors.aspx?Index=All"
+    url_list=["https://s23.a2zinc.net/clients/pba/cosmoprof2022/Public/Exhibitors.aspx?Index=All", "https://s23.a2zinc.net/clients/pba/cosmoprof2020/Public/Exhibitors.aspx?From=TopBar"]
     save_dir = 'cosmoprofData/'
+    file_name_list=["cosmoprof_2022.csv","cosmoprof_2020.csv"]
     
     # Run Crawler with save_path
-    cc = CosmoprofCrawler(url, save_dir)
-    
-    name_all, country_all, website_all, sns_all, source_all = cc.run()
-    
-    cc.save_data(name_all, country_all, website_all, sns_all, source_all)
+    for url, file_name in zip(url_list, file_name_list):
+        cc = CosmoprofCrawler(url, save_dir)
+        name_all, country_all, website_all, sns_all, source_all = cc.run()
+        cc.save_data(file_name, name_all, country_all, website_all, sns_all, source_all)
             
